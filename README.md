@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Delivery App — Мини-приложение для оформления заявок на доставку
 
-## Getting Started
+Приложение для создания и управления заявками на доставку посылок. Реализовано с использованием Next.js App Router, TypeScript и Tailwind CSS.
 
-First, run the development server:
+Деплой: https://delivery-app-one-dusky.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Функциональность
+
+### 1. Форма оформления заявки (3 шага)
+
+**Шаг 1 — Отправитель**
+- Имя (обязательное, минимум 2 символа, только буквы)
+- Телефон (обязательное, формат +7 и 10 цифр, маска ввода)
+- Город отправления (обязательное, только буквы, пробелы и дефисы)
+
+**Шаг 2 — Получатель и посылка**
+- Имя получателя (обязательное, только буквы)
+- Город назначения (обязательное, не может совпадать с городом отправления)
+- Тип груза: документы / хрупкое / обычное
+- Вес (число, от 0.1 до 30 кг)
+
+**Шаг 3 — Подтверждение**
+- Сводка введенных данных (read-only)
+- Чекбокс согласия с условиями (обязательный)
+- Кнопка отправки
+
+**Особенности формы**
+- Прогресс-бар с отображением текущего шага
+- Сохранение данных в localStorage при переходе между шагами
+- Валидация всех полей с понятными сообщениями об ошибках
+- Адаптивная верстка для мобильных и десктоп устройств
+
+### 2. История заявок (/orders)
+
+- Список всех оформленных заявок из localStorage
+- Карточка заявки содержит: маршрут, имя отправителя, тип груза, дату создания, статус
+- Поиск по имени получателя и городу назначения
+- Фильтрация по типу груза
+- Возможность удаления заявки с подтверждением в модальном окне
+- При клике на заявку — отдельная страница с полными деталями
+
+## Технологии
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Zod (валидация)
+- localStorage (хранение данных)
+
+## Установка и запуск
+
+1. Клонировать репозиторий:
 ```
+git clone https://github.com/alinidi/delivery-app.git
+cd delivery-app
+```
+2. Установить зависимости:
+```
+npm install
+```
+3. Запуск: 
+```
+npm run dev
+```
+4. Открыть: http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Скриншоты:
+<img width="955" height="1023" alt="заявка" src="https://github.com/user-attachments/assets/2a0d75ab-7c16-46e0-897c-d514f1209b75" />
+<img width="955" height="1023" alt="история" src="https://github.com/user-attachments/assets/3f019742-a92e-4911-83e7-c08310ffd897" />
