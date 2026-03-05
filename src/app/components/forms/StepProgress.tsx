@@ -15,30 +15,43 @@ export default function StepProgress({
 
     return (
         <div className="mb-8">
-            <div className="flex justify-between mb-2">
-                {stepNames.map((name, index) => (
+            <div className="sm:hidden">
+                <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-medium text-blue-600">
+                        Шаг {currentStep + 1} из {totalSteps}
+                    </span>
+                    <span className="text-sm text-gray-500">
+                        {stepNames[currentStep]}
+                    </span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
-                        key={index}
-                        className={`text-sm font-medium ${
-                            index <= currentStep
-                                ? 'text-blue-600'
-                                : 'text-gray-400'
-                        }`}
-                    >
-                        {name}
-                    </div>
-                ))}
+                        className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${progress}%` }}
+                    />
+                </div>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-                <div
-                    className="bg-blue-600 h-2.5 rounded-full transition-all duration-300"
-                    style={{ width: `${progress}%` }}
-                />
-            </div>
-            <div className="flex justify-between mt-2">
-                <span className="text-xs text-gray-500">
-                    Шаг {currentStep + 1} из {totalSteps}
-                </span>
+            <div className="hidden sm:block">
+                <div className="flex justify-between mb-2">
+                    {stepNames.map((name, index) => (
+                        <div
+                            key={index}
+                            className={`text-sm font-medium ${
+                                index <= currentStep
+                                    ? 'text-blue-600'
+                                    : 'text-gray-400'
+                            }`}
+                        >
+                            {name}
+                        </div>
+                    ))}
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                        className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${progress}%` }}
+                    />
+                </div>
             </div>
         </div>
     );
