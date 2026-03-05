@@ -244,11 +244,11 @@ export default function Step2({ data, onUpdate, onNext, onPrev }: Step2Props) {
                 <button
                     type="button"
                     onClick={onPrev}
-                    className="btn-secondary"
+                    className="btn-secondary cursor-pointer"
                 >
                     Назад
                 </button>
-                <button type="submit" className="btn-primary">
+                <button type="submit" className="btn-primary cursor-pointer">
                     Далее
                 </button>
             </div>

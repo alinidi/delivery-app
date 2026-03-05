@@ -128,11 +128,11 @@ export default function Step3({
                 <button
                     type="button"
                     onClick={onPrev}
-                    className="btn-secondary"
+                    className="btn-secondary cursor-pointer"
                 >
                     Назад
                 </button>
-                <button type="submit" className="btn-primary">
+                <button type="submit" className="btn-primary cursor-pointer">
                     Отправить заявку
                 </button>
             </div>

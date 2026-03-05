@@ -168,7 +168,7 @@ export default function Step1({ data, onUpdate, onNext }: Step1Props) {
             </div>
 
             <div className="flex justify-end">
-                <button type="submit" className="btn-primary">
+                <button type="submit" className="btn-primary cursor-pointer">
                     Далее
                 </button>
             </div>
